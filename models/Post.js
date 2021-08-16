@@ -5,8 +5,8 @@ const postSchema = new mongoose.Schema({
     author: String,
     message: {
         type: String, 
-        min: 3,
-        max: 100,
+        minlength: 3,
+        maxlength: 100,
         required: true
     }, 
     imageUri: String, 
@@ -16,8 +16,8 @@ const postSchema = new mongoose.Schema({
     },
     title: {
         type: String, 
-        min: 3,
-        max: 100,
+        minlength: 3,
+        maxlength: 100,
         required: true
     }
 
