@@ -1,15 +1,12 @@
 import express from 'express';
-import mongoose from 'mongoose';
-import config from 'config';
+
+import db from './startup/db.js';
+import middleware from './startup/middleware.js';
+import routes from './startup/routes.js';
 
 const app = express();
-app.get("/", (req, res) => res.send("App is running..."));
+middleware(app);
+routes(app);
+db(app);
 
 
-const port = process.env.PORT || 9000;
-mongoose.connect(config.get("db"), {useNewUrlParser: true, useUnifiedTopology: true})
-    .then(() => {
-        app.listen(port, () => console.log(`Listinening on port ${port}...`));
-    })
-    .catch(err => console.log("Could not connect to the database..."));
-mongoose.set("useFindAndModify", false);
