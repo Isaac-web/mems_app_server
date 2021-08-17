@@ -13,7 +13,7 @@ const userSchema = new mongoose.Schema({
     email: {
         type: String, 
         maxlength: 100, 
-        indexes: true,
+        createIndexes: true,
         require: true
     }, 
     firstname: {
