@@ -13,7 +13,7 @@ export const createPost = async  (req, res) => {
 
 
 export const getPosts = async (req, res) => {
-    const posts = await Post.find().sort("-_id");
+    const posts = await Post.find().sort("-_id").populate("author", "-_id -password");
     
     res.json(posts);
 }

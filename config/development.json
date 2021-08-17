@@ -1,3 +1,4 @@
 {
-    "db": "mongodb://localhost/mems_app_dev"
+    "db": "mongodb://localhost/mems_app_dev",
+    "jwtPrivateKey": "Private_Key"
 }

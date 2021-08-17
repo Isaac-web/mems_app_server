@@ -5,7 +5,7 @@ import User from '../models/User.js';
 
 export const createUser = async (req, res) => {
     const existingUser = await User.find({email: req.body.email});
-    if(existingUser) return res.status(400).json({message: "Invalid username or password."});
+    if(existingUser) return res.status(400).json({message: "Email alrealdy taken."});
 
     const passwordsMatch = req.body.password === req.body.confirmPassword;
     if(!passwordsMatch) return res.status(400).json({message: "Passwords donnot match."});
